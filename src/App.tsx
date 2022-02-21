@@ -1,11 +1,12 @@
 import React from 'react';
-
+import Header from './Components/Header';
+import Gameboard from './Components/Gameboard';
 
 function App() {
   return (
-    <div className="App">
-
-        
+    <div className="poop">
+        <Header />
+        <Gameboard />
     </div>
   );
 }

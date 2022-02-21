@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background-color: hsl(214, 47%, 23%);
 }
