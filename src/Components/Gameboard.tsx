@@ -6,9 +6,10 @@ import CloseButton from '../images/icon-close.svg'
 function Gameboard() {
   return (
     <div>
-      <img src={Pentagon} alt='Pentagon game board background' className=' mx-auto mt-40 z-0'/>
+      <img src={Pentagon} alt='Pentagon game board background' className=' mx-auto mt-40'/>
       
-      <div className='bg-white w-96 mx-auto rounded-lg'>
+      {/* hidden view height? */}
+      <div className='bg-white rounded-lg z-10'>
         <div className='flex justify-between px-6'>
           <p className='text-dark-text text-3xl pt-4'>Rules</p>
           <img src={CloseButton} alt='close button' className='h-6 w-6 mt-6'/>
