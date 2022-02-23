@@ -1,14 +1,13 @@
 import React from 'react';
 import Header from './Components/Header';
 import Gameboard from './Components/Gameboard';
-import Rules from './Components/Rules';
+
 
 function App() {
   return (
     <div className="poop">
         <Header />
         <Gameboard />
-        <Rules />
     </div>
   );
 }
