@@ -10,6 +10,7 @@ module.exports = {
         'score': 'hsl(229, 64%, 46%)',
         'dark-text': 'hsl(229, 25%, 31%)',
         'header-outline': 'hsl(217, 16%, 45%)',
+        'scissors-bg-first': 'hsl(39, 89%, 49%)',
       },
     },
   },
