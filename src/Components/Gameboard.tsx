@@ -2,18 +2,88 @@ import React, {useState} from 'react'
 import Pentagon from '../images/bg-pentagon.svg'
 import RulesPic from '../images/image-rules-bonus.svg'
 import CloseButton from '../images/icon-close.svg'
+import Scissors from '../images/icon-scissors.svg'
+import Lizard from '../images/icon-lizard.svg'
+import Paper from '../images/icon-paper.svg'
+import Rock from '../images/icon-rock.svg'
+import Spock from '../images/icon-spock.svg'
 
-function Gameboard() {
+interface IgameStarted {
+  setGameStarted: (arg0: boolean) => void
+} 
+
+
+function Gameboard({setGameStarted}: IgameStarted) {
   const [modalState, setModalState] = useState(false)
 
+  const setGame = () => {
+    setGameStarted(true)
+  }
 
   return (
     <div>
-      <div className='bg-white absolute left-[155px] top-[250px]  rounded-full w-20 h-20 z-20'></div>
-      <div className='bg-slate-300 absolute left-[155px] top-[244px]  rounded-full w-20 h-20 z-10'></div>
-      <div className='bg-scissors-bg-first absolute left-36 top-[234px]  rounded-full w-28 h-28'></div>
 
-      <img src={Pentagon} alt='Pentagon game board background' className=' mx-auto mt-36 w-60'/>
+      <section className='absolute left-[14px] grid grid-cols-3 gap-3 border-2 border-lime-400  z-10'>
+        <div onClick={setGame} className='col-span-3'>
+          <div className='bg-white rounded-full relative left-36 w-20 h-20 z-20'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
+          <div className='bg-scissors-bg-first rounded-full w-28 h-28'></div>
+          <div className='bg-scissors-bg-last rounded-full w-28 h-28'></div>
+          <img src={Scissors} alt='Scissors button' className='w-10 z-30'/>
+        </div>
+
+        <div onClick={setGame} className='col-start-1 col-end-2 '>
+          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
+          <div className='bg-spock-bg-first rounded-full w-28 h-28'></div>
+          <div className='bg-spock-bg-last rounded-full w-28 h-28'></div>
+          <img src={Spock} alt='Spock button' className='w-10 z-30'/>
+        </div>
+
+        <div onClick={setGame} className='col-start-3'>
+          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
+          <div className='bg-paper-bg-first rounded-full w-28 h-28'></div>
+          <div className='bg-paper-bg-last rounded-full w-28 h-28'></div>
+          <img src={Paper} alt='Paper button' className='w-10 z-30'/>
+        </div>
+
+        <div onClick={setGame} className='col-start-1 col-end-2 '>
+          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
+          <div className='bg-lizard-bg-first rounded-full w-28 h-28'></div>
+          <div className='bg-lizard-bg-last rounded-full w-28 h-28'></div>
+          <img src={Lizard} alt='Lizard button' className='w-10 z-30'/>
+        </div>
+
+        <div onClick={setGame} className='col-start-3'>
+          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
+          <div className='bg-rock-bg-first rounded-full w-28 h-28'></div>
+          <div className='bg-rock-bg-last rounded-full w-28 h-28'></div>
+          <img src={Rock} alt='Rock button' className='w-10 z-30'/>
+        </div>
+      </section>
+
+      {/* Using absolute positioning */}
+      {/* <div onClick={setGame}>
+        <div className='bg-white absolute left-[155px] top-[253px]  rounded-full w-20 h-20 z-20'></div>
+        <div className='bg-slate-300 absolute left-[155px] top-[249px]  rounded-full w-20 h-20 z-10'></div>
+        <div className='bg-scissors-bg-first absolute left-[140px] top-[240px]  rounded-full w-28 h-28'></div>
+        <div className='bg-scissors-bg-last absolute left-[140px] top-[236px]  rounded-full w-28 h-28'></div>
+        <img src={Scissors} alt='Scissors button' className='absolute left-[174px] top-[264px] w-10 z-30'/>
+      </div> */}
+
+      {/* using negative margins */}
+      {/* <div className='mx-auto bg-slate-300 rounded-full w-20 h-20 z-20 -mb-5'></div>
+      <div className='mx-auto bg-white rounded-full w-20 h-20 z-30 -mb-10 '></div>
+      <div className='mx-auto bg-scissors-bg-first rounded-full w-28 h-28 -mt-3'></div>
+      <div className='mx-auto  bg-scissors-bg-last rounded-full w-28 h-28 -mt-32 -mb-10'></div>
+      <img src={Scissors} alt='Scissors button' className='mx-auto w-10 z-40'/> */}
+
+
+
+      <img src={Pentagon} alt='Pentagon game board background' className=' mx-auto mt-36 w-60 '/> 
       
 
       {/* hidden | view height? */}

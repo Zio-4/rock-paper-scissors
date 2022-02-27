@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './Components/Header';
 import Gameboard from './Components/Gameboard';
+import PlayingGame from './Components/PlayingGame';
 
 
 function App() {
+
+  const [gameStarted, setGameStarted] = useState<boolean>(false)
+
+  // const updateGameStarted = (bool: boolean) => {
+  //   setGameStarted(bool)
+  // }
+
   return (
-    <div className="poop">
+    <div>
         <Header />
-        <Gameboard />
+        {gameStarted ? <PlayingGame /> : <Gameboard setGameStarted={setGameStarted}/>}
     </div>
   );
 }
