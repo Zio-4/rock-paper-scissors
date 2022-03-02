@@ -23,47 +23,132 @@ function Gameboard({setGameStarted}: IgameStarted) {
   return (
     <div>
 
-      <section className='absolute left-[14px] grid grid-cols-3 gap-3 border-2 border-lime-400  z-10'>
-        <div onClick={setGame} className='col-span-3'>
-          <div className='bg-white rounded-full relative left-36 w-20 h-20 z-20'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
-          <div className='bg-scissors-bg-first rounded-full w-28 h-28'></div>
-          <div className='bg-scissors-bg-last rounded-full w-28 h-28'></div>
-          <img src={Scissors} alt='Scissors button' className='w-10 z-30'/>
+      <section className='mx-auto w-11/12 flex flex-wrap z-10 -mb-80 mt-24 '>
+        {/* border-2 border-orange-300 */}
+        <div onClick={setGame} className='w-full mb-4'>
+          <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto'></div>
+          <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto'></div>
+          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'></div>
+          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto'></div>
+          <img src={Scissors} alt='Scissors button' className='mx-auto w-9 z-30'/>
         </div>
 
-        <div onClick={setGame} className='col-start-1 col-end-2 '>
-          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
-          <div className='bg-spock-bg-first rounded-full w-28 h-28'></div>
-          <div className='bg-spock-bg-last rounded-full w-28 h-28'></div>
-          <img src={Spock} alt='Spock button' className='w-10 z-30'/>
+        {/* border-2 border-red-400 */}
+        <div onClick={setGame} className='w-1/2 pr-14 pb-12'>
+            <div className='bg-spock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
+            <div className='bg-spock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
+            <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto'></div>
+            <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto'></div>
+            <img src={Spock} alt='Spock button' className='w-9 z-30 mx-auto'/>
         </div>
 
-        <div onClick={setGame} className='col-start-3'>
-          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
-          <div className='bg-paper-bg-first rounded-full w-28 h-28'></div>
-          <div className='bg-paper-bg-last rounded-full w-28 h-28'></div>
-          <img src={Paper} alt='Paper button' className='w-10 z-30'/>
+        {/* border-2 border-blue-300 */}
+        <div onClick={setGame} className='w-1/2 pl-14'>
+          <div className='bg-paper-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
+          <div className='bg-paper-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto'></div>
+          <img src={Paper} alt='Paper button' className='w-9 z-30 mx-auto'/>
         </div>
 
-        <div onClick={setGame} className='col-start-1 col-end-2 '>
-          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
-          <div className='bg-lizard-bg-first rounded-full w-28 h-28'></div>
-          <div className='bg-lizard-bg-last rounded-full w-28 h-28'></div>
-          <img src={Lizard} alt='Lizard button' className='w-10 z-30'/>
+        {/* border-2 border-yellow-300 */}
+        <div onClick={setGame} className='w-1/2 '>
+          <div className='bg-lizard-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
+          <div className='bg-lizard-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto'></div>
+          <img src={Lizard} alt='Lizard button' className='w-11 z-30 mx-auto'/>
         </div>
 
-        <div onClick={setGame} className='col-start-3'>
-          <div className='bg-white rounded-full w-20 h-20 z-20'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10'></div>
-          <div className='bg-rock-bg-first rounded-full w-28 h-28'></div>
-          <div className='bg-rock-bg-last rounded-full w-28 h-28'></div>
-          <img src={Rock} alt='Rock button' className='w-10 z-30'/>
+        {/* border-2 border-purple-300 */}
+        <div onClick={setGame} className='w-1/2  mb-20'>
+          <div className='bg-rock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
+          <div className='bg-rock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10 -mb-[76px] mx-auto'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20 -mb-14 mx-auto'></div>
+          <img src={Rock} alt='Rock button' className='w-10 z-30 mx-auto'/>
         </div>
       </section>
+
+
+      <img src={Pentagon} alt='Pentagon game board background' className='fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-60 -z-10'/> 
+      
+
+      {/* hidden | view height? */}
+      {/* On md+ viewport change close to be aligned with rules text */}
+      <div className={`bg-white fixed left-0 top-0 w-screen h-screen rounded-lg z-50 overflow-auto ${modalState ? null : 'hidden'}`}>
+        <div className='flex flex-col px-6'>
+          <p className='order-1 text-dark-text text-3xl pt-24 mx-auto'>Rules</p>
+          <img src={CloseButton}
+           alt='close button' 
+           onClick={() => setModalState(!modalState)} 
+           className='order-last h-6 w-6 mt-24 mx-auto'/>
+          <img src={RulesPic} alt='image of rules' className='order-2 mx-auto z-10 mt-24 pb-10'/>
+        </div>
+      </div>
+
+      <div className='flex justify-center mt-96'>
+        <button 
+        onClick={() => setModalState(!modalState)} 
+        className='text-white font-extralight text-2xl border-2 border-white py-2 px-12 rounded-xl uppercase tracking-widest'
+        >rules</button>
+      </div>
+
+    </div>
+  )
+}
+
+export default Gameboard
+
+      {/* border-2 border-lime-400 */}
+      {/* <section className='mx-auto grid grid-cols-3 gap-3 z-10 -mb-80 mt-24'>
+        border-2 border-orange-300
+        <div onClick={setGame} className='col-span-3 mb-4'>
+          <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto'></div>
+          <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto'></div>
+          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'></div>
+          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto'></div>
+          <img src={Scissors} alt='Scissors button' className='mx-auto w-9 z-30'/>
+        </div>
+
+        border-2 border-red-400
+        <div onClick={setGame} className='col-start-1 col-end-2 '>
+          <div className='fixed'>
+            <div className='bg-spock-bg-first rounded-full w-28 h-28 -mb-[116px] '></div>
+            <div className='bg-spock-bg-last rounded-full w-28 h-28 -mb-24 '></div>
+            <div className='bg-slate-300 rounded-full w-20 h-20 z-10 ml-4 -mb-[76px]'></div>
+            <div className='bg-white rounded-full w-20 h-20 z-20 ml-4 -mb-16 '></div>
+            <img src={Spock} alt='Spock button' className='w-9 z-30 ml-10'/>
+          </div>
+        </div>
+
+        border-2 border-blue-300
+        <div onClick={setGame} className='col-start-3  mb-14'>
+          <div className='bg-paper-bg-first rounded-full w-28 h-28 -mb-[116px] '></div>
+          <div className='bg-paper-bg-last rounded-full w-28 h-28 -mb-24 '></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10 ml-4 -mb-[76px]'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20 ml-4 -mb-16'></div>
+          <img src={Paper} alt='Paper button' className='w-9 z-30 ml-9'/>
+        </div>
+
+        border-2 border-yellow-300
+        <div onClick={setGame} className='col-start-1 col-end-2 '>
+          <div className='bg-lizard-bg-first rounded-full w-28 h-28 -mb-[116px] ml-12'></div>
+          <div className='bg-lizard-bg-last rounded-full w-28 h-28 -mb-24 ml-12'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10 ml-16 -mb-[76px]'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20 ml-16 -mb-16'></div>
+          <img src={Lizard} alt='Lizard button' className='w-11 z-30 ml-20'/>
+        </div>
+
+        border-2 border-purple-300
+        <div onClick={setGame} className='col-start-3 mb-20'>
+          <div className='bg-rock-bg-first rounded-full w-28 h-28 -mb-[116px] -ml-12'></div>
+          <div className='bg-rock-bg-last rounded-full w-28 h-28 -mb-24 -ml-12'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10 -ml-8 -mb-[76px]'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20 -ml-8 -mb-14'></div>
+          <img src={Rock} alt='Rock button' className='w-10 z-30 -ml-3'/>
+        </div>
+      </section> */}
 
       {/* Using absolute positioning */}
       {/* <div onClick={setGame}>
@@ -80,34 +165,3 @@ function Gameboard({setGameStarted}: IgameStarted) {
       <div className='mx-auto bg-scissors-bg-first rounded-full w-28 h-28 -mt-3'></div>
       <div className='mx-auto  bg-scissors-bg-last rounded-full w-28 h-28 -mt-32 -mb-10'></div>
       <img src={Scissors} alt='Scissors button' className='mx-auto w-10 z-40'/> */}
-
-
-
-      <img src={Pentagon} alt='Pentagon game board background' className=' mx-auto mt-36 w-60 '/> 
-      
-
-      {/* hidden | view height? */}
-      {/* On md+ viewport change close to be aligned with rules text */}
-      <div className={`bg-white fixed left-0 top-0 w-screen h-screen rounded-lg z-50 overflow-auto ${modalState ? null : 'hidden'}`}>
-        <div className='flex flex-col px-6'>
-          <p className='order-1 text-dark-text text-3xl pt-24 mx-auto'>Rules</p>
-          <img src={CloseButton}
-           alt='close button' 
-           onClick={() => setModalState(!modalState)} 
-           className='order-last h-6 w-6 mt-24 mx-auto'/>
-          <img src={RulesPic} alt='image of rules' className='order-2 mx-auto z-10 mt-24 pb-10'/>
-        </div>
-      </div>
-
-      <div className='flex justify-center mt-44'>
-        <button 
-        onClick={() => setModalState(!modalState)} 
-        className='text-white text-2xl border-2 border-header-outline py-2 px-12 rounded-md'
-        >Rules</button>
-      </div>
-
-    </div>
-  )
-}
-
-export default Gameboard
