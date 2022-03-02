@@ -2,20 +2,19 @@ import React, {useState} from 'react';
 import Header from './Components/Header';
 import Gameboard from './Components/Gameboard';
 import PlayingGame from './Components/PlayingGame';
+import Rules from './Components/Rules';
 
 
 function App() {
 
   const [gameStarted, setGameStarted] = useState<boolean>(false)
 
-  // const updateGameStarted = (bool: boolean) => {
-  //   setGameStarted(bool)
-  // }
 
   return (
     <div>
         <Header />
         {gameStarted ? <PlayingGame /> : <Gameboard setGameStarted={setGameStarted}/>}
+        <Rules />
     </div>
   );
 }
