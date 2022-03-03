@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, MouseEvent} from 'react'
 import Pentagon from '../images/bg-pentagon.svg'
 import Scissors from '../images/icon-scissors.svg'
 import Lizard from '../images/icon-lizard.svg'
@@ -6,16 +6,22 @@ import Paper from '../images/icon-paper.svg'
 import Rock from '../images/icon-rock.svg'
 import Spock from '../images/icon-spock.svg'
 
-interface IgameStarted {
-  setGameStarted: (arg0: boolean) => void
+// Interface is shared for passed down props/functions
+interface IgameBoard {
+  setGameStarted: React.Dispatch<React.SetStateAction<boolean>>
+  setPlayerButton: React.Dispatch<React.SetStateAction<string>>
 } 
 
+// React.Dispatch<React.SetStateAction<string>>
 
-function Gameboard({setGameStarted}: IgameStarted) {
 
 
-  const setGame = () => {
+function Gameboard({setGameStarted}: IgameBoard, {setPlayerButton}: IgameBoard) {
+
+  const setGame = (event: MouseEvent<HTMLElement>) => {
     setGameStarted(true)
+    //id isn't in all variations of target and can be, for example window. If you know the target is an element, you can cast to that
+    setPlayerButton((event.target as Element).id)
   }
 
   return (
@@ -23,12 +29,12 @@ function Gameboard({setGameStarted}: IgameStarted) {
 
       <section className='mx-auto w-11/12 flex flex-wrap z-10 -mb-80 mt-24 '>
         {/* border-2 border-orange-300 */}
-        <div onClick={setGame} className='w-full mb-4'>
-          <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto'></div>
-          <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto'></div>
-          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'></div>
-          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto'></div>
-          <img src={Scissors} alt='Scissors button' className='mx-auto w-9 z-30'/>
+        <div onClick={setGame} id='Scissors1' className='w-full mb-4'>
+          <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto' id='Scissors2'></div>
+          <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto' id='Scissors3'></div>
+          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'id='Scissors4'></div>
+          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto' id='Scissors5'></div>
+          <img src={Scissors} alt='Scissors button' className='mx-auto w-9 z-30' id='Scissors6'/>
         </div>
 
         {/* border-2 border-red-400 */}
@@ -68,10 +74,8 @@ function Gameboard({setGameStarted}: IgameStarted) {
         </div>
       </section>
 
-
       <img src={Pentagon} alt='Pentagon game board background' className='fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-60 -z-10'/> 
       
-
     </div>
   )
 }
