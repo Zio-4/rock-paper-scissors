@@ -16,7 +16,7 @@ interface IgameBoard {
 
 
 
-function Gameboard({setGameStarted}: IgameBoard, {setPlayerButton}: IgameBoard) {
+function Gameboard({setGameStarted, setPlayerButton}: IgameBoard) {
 
   const setGame = (event: MouseEvent<HTMLElement>) => {
     setGameStarted(true)
