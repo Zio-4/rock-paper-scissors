@@ -9,17 +9,13 @@ import Rules from './Components/Rules';
 function App() {
 
   const [gameStarted, setGameStarted] = useState<boolean>(false)
-  const [playerButton, setPlayerButton] = useState<string>("")
-
-  // const updatePlayerButton = (button: string) => {
-  //   setPlayerButton(button)
-  // }
+  const [playerButtonPick, setPlayerButtonPick] = useState<string>("")
 
 
   return (
     <div>
         <Header />
-        {gameStarted ? <PlayingGame playerButton={playerButton}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButton={setPlayerButton}/>}
+        {gameStarted ? <PlayingGame playerButtonPick={playerButtonPick}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButtonPick={setPlayerButtonPick}/>}
         <Rules />
     </div>
   );

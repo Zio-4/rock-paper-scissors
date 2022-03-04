@@ -9,68 +9,67 @@ import Spock from '../images/icon-spock.svg'
 // Interface is shared for passed down props/functions
 interface IgameBoard {
   setGameStarted: React.Dispatch<React.SetStateAction<boolean>>
-  setPlayerButton: React.Dispatch<React.SetStateAction<string>>
+  setPlayerButtonPick: React.Dispatch<React.SetStateAction<string>>
 } 
 
-// React.Dispatch<React.SetStateAction<string>>
 
-
-
-function Gameboard({setGameStarted, setPlayerButton}: IgameBoard) {
+function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
 
   const setGame = (event: MouseEvent<HTMLElement>) => {
     setGameStarted(true)
     //id isn't in all variations of target and can be, for example window. If you know the target is an element, you can cast to that
-    setPlayerButton((event.target as Element).id)
+    const secondToLastPosition = (event.target as Element).id.length - 1
+    setPlayerButtonPick((event.target as Element).id.slice(0, secondToLastPosition))
   }
 
   return (
     <div>
 
       <section className='mx-auto w-11/12 flex flex-wrap z-10 -mb-80 mt-24 '>
-        {/* border-2 border-orange-300 */}
-        <div onClick={setGame} id='Scissors1' className='w-full mb-4'>
-          <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto' id='Scissors2'></div>
-          <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto' id='Scissors3'></div>
-          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'id='Scissors4'></div>
-          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto' id='Scissors5'></div>
-          <img src={Scissors} alt='Scissors button' className='mx-auto w-9 z-30' id='Scissors6'/>
+
+        {/* Set onClick handler only to elements not wrapper div !! */}
+        <div onClick={setGame} className='w-full mb-4' id='scissors1'>
+          <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto' id='scissors2'></div>
+          <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto' id='scissors3'></div>
+          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'id='scissors4'></div>
+          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto' id='scissors5'></div>
+          <img src={Scissors} alt='Scissors button' className='mx-auto w-9 z-30' id='scissors6'/>
         </div>
 
         {/* border-2 border-red-400 */}
-        <div onClick={setGame} className='w-1/2 pr-14 pb-12'>
-            <div className='bg-spock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
-            <div className='bg-spock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
-            <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto'></div>
-            <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto'></div>
-            <img src={Spock} alt='Spock button' className='w-9 z-30 mx-auto'/>
+        <div onClick={setGame} className='w-1/2 pr-14 pb-12' id='spock1'>
+            <div className='bg-spock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='spock2'></div>
+            <div className='bg-spock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='spock3'></div>
+            <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='spock4'></div>
+            <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto' id='spock5'></div>
+            <img src={Spock} alt='Spock button' className='w-9 z-30 mx-auto' id='spock6'/>
         </div>
 
         {/* border-2 border-blue-300 */}
-        <div onClick={setGame} className='w-1/2 pl-14'>
-          <div className='bg-paper-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
-          <div className='bg-paper-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto'></div>
-          <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto'></div>
-          <img src={Paper} alt='Paper button' className='w-9 z-30 mx-auto'/>
+        <div onClick={setGame} className='w-1/2 pl-14' id='paper1'>
+          <div className='bg-paper-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='paper2'></div>
+          <div className='bg-paper-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='paper3'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='paper4'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto' id='paper5'></div>
+          <img src={Paper} alt='Paper button' className='w-9 z-30 mx-auto' id='paper6'/>
         </div>
 
         {/* border-2 border-yellow-300 */}
-        <div onClick={setGame} className='w-1/2 '>
-          <div className='bg-lizard-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
-          <div className='bg-lizard-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto'></div>
-          <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto'></div>
-          <img src={Lizard} alt='Lizard button' className='w-11 z-30 mx-auto'/>
+        <div onClick={setGame} className='w-1/2' id='lizard1'>
+          <div className='bg-lizard-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='lizard2'></div>
+          <div className='bg-lizard-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='lizard3'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='lizard4'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20  -mb-16 mx-auto' id='lizard5'></div>
+          <img src={Lizard} alt='Lizard button' className='w-11 z-30 mx-auto' id='lizard6'/>
         </div>
 
         {/* border-2 border-purple-300 */}
-        <div onClick={setGame} className='w-1/2  mb-20'>
-          <div className='bg-rock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto'></div>
-          <div className='bg-rock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto'></div>
-          <div className='bg-slate-300 rounded-full w-20 h-20 z-10 -mb-[76px] mx-auto'></div>
-          <div className='bg-white rounded-full w-20 h-20 z-20 -mb-14 mx-auto'></div>
-          <img src={Rock} alt='Rock button' className='w-10 z-30 mx-auto'/>
+        <div onClick={setGame} className='w-1/2 mb-20' id='rock1'>
+          <div className='bg-rock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='rock2'></div>
+          <div className='bg-rock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='rock3'></div>
+          <div className='bg-slate-300 rounded-full w-20 h-20 z-10 -mb-[76px] mx-auto' id='rock4'></div>
+          <div className='bg-white rounded-full w-20 h-20 z-20 -mb-14 mx-auto' id='rock5'></div>
+          <img src={Rock} alt='Rock button' className='w-10 z-30 mx-auto' id='rock6'/>
         </div>
       </section>
 
