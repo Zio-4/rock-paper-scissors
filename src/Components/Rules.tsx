@@ -20,11 +20,12 @@ return (
         </div>
       </div>
 
-      <div className='flex justify-center mt-96'>
-        <button 
-        onClick={() => setModalState(!modalState)} 
-        className='text-white font-extralight text-2xl border-2 border-white py-2 px-12 rounded-xl uppercase tracking-widest'
-        >rules</button>
+      {/* Horizontally centers a fixed element */}
+      <div className='fixed top-[80%] left-1/2 -translate-x-1/2 '>
+          <button 
+          onClick={() => setModalState(!modalState)} 
+          className='text-white font-extralight text-2xl border-2 border-white py-2 px-12 rounded-xl uppercase tracking-widest mx-auto'
+          >rules</button>
       </div>
     </>
   )
