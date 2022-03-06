@@ -10,12 +10,13 @@ function App() {
 
   const [gameStarted, setGameStarted] = useState<boolean>(false)
   const [playerButtonPick, setPlayerButtonPick] = useState<string>("")
+  const [score, setScore] = useState<number>(0)
 
 
   return (
     <div>
-        <Header />
-        {gameStarted ? <PlayingGame playerButtonPick={playerButtonPick}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButtonPick={setPlayerButtonPick}/>}
+        <Header score={score}/>
+        {gameStarted ? <PlayingGame playerButtonPick={playerButtonPick} setScore={setScore}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButtonPick={setPlayerButtonPick}/>}
         <Rules />
     </div>
   );
