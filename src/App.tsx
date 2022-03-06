@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
         <Header score={score}/>
-        {gameStarted ? <PlayingGame playerButtonPick={playerButtonPick} setScore={setScore} score={score}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButtonPick={setPlayerButtonPick}/>}
+        {gameStarted ? <PlayingGame playerButtonPick={playerButtonPick} setScore={setScore} score={score} setGameStarted={setGameStarted}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButtonPick={setPlayerButtonPick}/>}
         <Rules />
     </div>
   );

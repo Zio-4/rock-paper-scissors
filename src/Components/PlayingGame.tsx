@@ -9,11 +9,12 @@ interface IplayingGame {
   playerButtonPick: string
   setScore: React.Dispatch<React.SetStateAction<number>>
   score: number
+  setGameStarted: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 
 
-function PlayingGame({playerButtonPick, setScore, score}: IplayingGame) {
+function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: IplayingGame) {
   const [computerButtonPick, setComputerButtonPick] = useState<string>('')
   const [gameResult, setGameResult] = useState<string>('')
   
@@ -125,7 +126,7 @@ function PlayingGame({playerButtonPick, setScore, score}: IplayingGame) {
 
       {winLoseTie()}
 
-      <div className='flex justify-center mt-6'>
+      <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
         <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
       </div>
 
