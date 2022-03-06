@@ -8,11 +8,12 @@ import spock from '../images/icon-spock.svg'
 interface IplayingGame {
   playerButtonPick: string
   setScore: React.Dispatch<React.SetStateAction<number>>
+  score: number
 }
 
 
 
-function PlayingGame({playerButtonPick, setScore}: IplayingGame) {
+function PlayingGame({playerButtonPick, setScore, score}: IplayingGame) {
   const [computerButtonPick, setComputerButtonPick] = useState<string>('')
   const [gameResult, setGameResult] = useState<string>('')
   
@@ -34,7 +35,7 @@ function PlayingGame({playerButtonPick, setScore}: IplayingGame) {
           renderComputerPick() 
         }, (1000))  
     }
- 
+
     if (playerButtonPick === 'scissors' && computerButtonPick === 'scissors') setGameResult('tie') 
     if (playerButtonPick === 'paper' && computerButtonPick === 'paper') setGameResult('tie') 
     if (playerButtonPick === 'rock' && computerButtonPick === 'rock') setGameResult('tie') 
@@ -63,7 +64,14 @@ function PlayingGame({playerButtonPick, setScore}: IplayingGame) {
     if (playerButtonPick === 'paper' && computerButtonPick === 'lizard') setGameResult('lose')
     if (playerButtonPick === 'rock' && computerButtonPick === 'spock') setGameResult('lose')
 
-  }, [computerButtonPick])
+
+    if (gameResult === 'win') setScore(score += 1)
+    if (gameResult === 'lose' && score !== 0) setScore(score -= 1)
+
+  }, [computerButtonPick, gameResult])
+
+  console.log(gameResult)
+
 
   const renderComputerPick = () => {
     if (computerButtonPick.length > 0) {
