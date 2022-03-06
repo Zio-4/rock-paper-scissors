@@ -14,6 +14,7 @@ interface IplayingGame {
 
 function PlayingGame({playerButtonPick, setScore}: IplayingGame) {
   const [computerButtonPick, setComputerButtonPick] = useState<string>('')
+  const [gameResult, setGameResult] = useState<string>('')
   
   useEffect(() => {
     // Simulate picking a button 
@@ -31,9 +32,48 @@ function PlayingGame({playerButtonPick, setScore}: IplayingGame) {
       }, (1000))
 
       if (playerButtonPick === 'scissors' && computerButtonPick === 'scissors') {
-        console.log('tie') 
-      }
+        setGameResult('tie') 
+      } else if (playerButtonPick === 'paper' && computerButtonPick === 'paper') {
+        setGameResult('tie')
+      } else if (playerButtonPick === 'rock' && computerButtonPick === 'rock') {
+        setGameResult('tie')
+      } else if (playerButtonPick === 'spock' && computerButtonPick === 'spock') {
+        setGameResult('spock')
+      } else if (playerButtonPick === 'lizard' && computerButtonPick === 'lizard') {
+        setGameResult('tie')
+      } else if (playerButtonPick === 'scissors' && computerButtonPick === 'paper') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'paper' && computerButtonPick === 'rock') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'rock' && computerButtonPick === 'lizard') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'lizard' && computerButtonPick === 'spock') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'spock' && computerButtonPick === 'scissors') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'scissors' && computerButtonPick === 'lizard') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'paper' && computerButtonPick === 'spock') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'rock' && computerButtonPick === 'scissors') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'lizard' && computerButtonPick === 'paper') {
+        setGameResult('win')
+      } else if (playerButtonPick === 'spock' && computerButtonPick === 'rock') {
+        setGameResult('win')
+      } 
+      
   }, [])
+
+  const winLoseTie = () => {
+    if (gameResult === 'win') {
+      return <p className='text-6xl text-white uppercase'>you win</p>
+    } else if (gameResult === 'lose') {
+      return <p className='text-6xl text-white uppercase'>you lose</p>
+    } else if (gameResult === 'tie') {
+      return <p className='text-6xl text-white uppercase'>it's a tie</p>
+    }
+  }
 
   
 
@@ -63,10 +103,12 @@ function PlayingGame({playerButtonPick, setScore}: IplayingGame) {
 
       </div>
 
-        <div className='flex flex-wrap justify-between space-x-2 mt-5'>
-          <div className='text-lg text-white uppercase tracking-widest ml-12'>you picked</div>
-          <div className='text-lg text-white uppercase tracking-widest pr-4'>the house picked</div>
-        </div>
+      <div className='flex flex-wrap justify-between space-x-2 mt-5'>
+        <div className='text-lg text-white uppercase tracking-widest ml-12'>you picked</div>
+        <div className='text-lg text-white uppercase tracking-widest pr-4'>the house picked</div>
+      </div>
+
+      {winLoseTie()}
     </div>
   )
 }
