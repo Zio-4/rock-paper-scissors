@@ -25,10 +25,10 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
   return (
     <div>
 
-      <section className='mx-auto w-11/12 flex flex-wrap z-10 -mb-80 mt-24 '>
+      <section className='mx-auto w-11/12 flex flex-wrap z-10 mt-24 '>
 
         {/* Set onClick handler only to elements not wrapper div !! */}
-        <div onClick={setGame} className='w-full mb-4' id='scissors1'>
+        <div onClick={setGame} className='w-full mb-4 z-10' id='scissors1'>
           <div className='bg-scissors-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto' id='scissors2'></div>
           <div className='bg-scissors-bg-last -mb-24 rounded-full w-28 h-28 mx-auto' id='scissors3'></div>
           <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'id='scissors4'></div>
@@ -37,7 +37,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-red-400 */}
-        <div onClick={setGame} className='w-1/2 pr-14 pb-12' id='spock1'>
+        <div onClick={setGame} className='w-1/2 pr-14 pb-12 z-10' id='spock1'>
             <div className='bg-spock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='spock2'></div>
             <div className='bg-spock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='spock3'></div>
             <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='spock4'></div>
@@ -46,7 +46,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-blue-300 */}
-        <div onClick={setGame} className='w-1/2 pl-14' id='paper1'>
+        <div onClick={setGame} className='w-1/2 pl-14 z-10' id='paper1'>
           <div className='bg-paper-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='paper2'></div>
           <div className='bg-paper-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='paper3'></div>
           <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='paper4'></div>
@@ -55,7 +55,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-yellow-300 */}
-        <div onClick={setGame} className='w-1/2' id='lizard1'>
+        <div onClick={setGame} className='w-1/2 z-10' id='lizard1'>
           <div className='bg-lizard-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='lizard2'></div>
           <div className='bg-lizard-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='lizard3'></div>
           <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='lizard4'></div>
@@ -64,7 +64,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-purple-300 */}
-        <div onClick={setGame} className='w-1/2 mb-20' id='rock1'>
+        <div onClick={setGame} className='w-1/2 z-10' id='rock1'>
           <div className='bg-rock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='rock2'></div>
           <div className='bg-rock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='rock3'></div>
           <div className='bg-slate-300 rounded-full w-20 h-20 z-10 -mb-[76px] mx-auto' id='rock4'></div>
@@ -73,7 +73,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
       </section>
 
-      <img src={Pentagon} alt='Pentagon game board background' className='fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-60 -z-10'/> 
+      <img src={Pentagon} alt='Pentagon game board background' className='fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-60'/> 
       
     </div>
   )
