@@ -77,7 +77,7 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
   const renderComputerPick = () => {
     if (computerButtonPick.length > 0) {
       return (
-        <div>
+        <div >
           <div className={`bg-${computerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto`} ></div>
           <div className={`bg-${computerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto`}></div>
           <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'></div>
@@ -90,18 +90,39 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
 
   const winLoseTie = () => {
     if (gameResult === 'win') {
-      return <p className='text-6xl text-white uppercase text-center mt-20'>you win</p>
+      return (
+        <div>
+          <p className='text-6xl text-yellow-400 uppercase text-center mt-20'>you win</p>
+          <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
+            <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
+          </div>
+        </div>
+      )
     } else if (gameResult === 'lose') {
-      return <p className='text-6xl text-white uppercase text-center mt-20'>you lose</p>
+      return (
+        <div>
+          <p className='text-6xl text-red-400 uppercase text-center mt-20'>you lose</p>
+          <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
+            <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
+          </div>
+        </div>
+      )
     } else if (gameResult === 'tie') {
-      return <p className='text-6xl text-white uppercase text-center mt-20'>it's a tie</p>
+      return (
+        <div>
+          <p className='text-6xl text-white uppercase text-center mt-20'>it's a tie</p>
+          <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
+            <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
+          </div>
+        </div>
+      )
     }
   }
 
 
   return (
     <div>
-      <div className='flex justify-center space-x-10 mt-20 mb-12'>
+      <div className='flex justify-center space-x-20 mt-20 mb-12'>
           <div className='mb-4'>
             <div className={`bg-${playerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto`}></div>
             <div className={`bg-${playerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto`}></div>
@@ -111,25 +132,18 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
         </div>
 
         {/* Check string is not null */}
-        <div className=''>
-          <div className={`bg-computer-placeholder-button opacity-20 rounded-full w-28 h-28 ${!!computerButtonPick ? 'hidden' : null}`}></div>
-        </div>
+        <div className={`bg-computer-placeholder-button opacity-20 rounded-full w-28 h-28 ${!!computerButtonPick ? 'hidden' : null}`}></div>
         
         {renderComputerPick()}
 
       </div>
 
       <div className='flex flex-wrap justify-between space-x-2 mt-5'>
-        <div className='text-lg text-white uppercase tracking-widest ml-12'>you picked</div>
-        <div className='text-lg text-white uppercase tracking-widest pr-4'>the house picked</div>
+        <div className={`text-lg text-white uppercase tracking-widest ml-12 ${gameResult === 'win' ? 'underline decoration-solid underline-offset-8' : null}`}>you picked</div>
+        <div className={`text-lg text-white uppercase tracking-widest pr-4 ${gameResult === 'lose' ? 'underline decoration-solid underline-offset-8' : null}`}>the house picked</div>
       </div>
 
       {winLoseTie()}
-
-      <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
-        <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
-      </div>
-
     </div>
   )
 }
