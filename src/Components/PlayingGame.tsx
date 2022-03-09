@@ -122,7 +122,7 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
 
   return (
     <div>
-      <div className='flex justify-center space-x-20 mt-20 mb-12'>
+      <div className='flex justify-center space-x-20 mt-20 mb-12 sm:space-x-48'>
           <div className='mb-4'>
             <div className={`bg-${playerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto`}></div>
             <div className={`bg-${playerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto`}></div>
@@ -139,8 +139,8 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
       </div>
 
       <div className='flex flex-wrap justify-between space-x-2 mt-5'>
-        <div className={`text-lg text-white uppercase tracking-widest ml-12 ${gameResult === 'win' ? 'underline decoration-solid underline-offset-8' : null}`}>you picked</div>
-        <div className={`text-lg text-white uppercase tracking-widest pr-4 ${gameResult === 'lose' ? 'underline decoration-solid underline-offset-8' : null}`}>the house picked</div>
+        <div className={`text-lg text-white uppercase tracking-widest ml-12 sm:ml-[7.5rem] ${gameResult === 'win' ? 'underline decoration-solid underline-offset-8' : null}`}>you picked</div>
+        <div className={`text-lg text-white uppercase tracking-widest pr-4 sm:pr-20 ${gameResult === 'lose' ? 'underline decoration-solid underline-offset-8' : null}`}>the house picked</div>
       </div>
 
       {winLoseTie()}

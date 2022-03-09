@@ -37,7 +37,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-red-400 */}
-        <div onClick={setGame} className='w-1/2 pr-14 pb-12 z-10' id='spock1'>
+        <div onClick={setGame} className='w-1/2 pr-14 pb-12 z-10 sm:pr-0 sm:pl-12' id='spock1'>
             <div className='bg-spock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='spock2'></div>
             <div className='bg-spock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='spock3'></div>
             <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='spock4'></div>
@@ -46,7 +46,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-blue-300 */}
-        <div onClick={setGame} className='w-1/2 pl-14 z-10' id='paper1'>
+        <div onClick={setGame} className='w-1/2 pl-14 z-10 sm:pl-0 sm:pr-12' id='paper1'>
           <div className='bg-paper-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='paper2'></div>
           <div className='bg-paper-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='paper3'></div>
           <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='paper4'></div>
@@ -55,7 +55,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-yellow-300 */}
-        <div onClick={setGame} className='w-1/2 z-10' id='lizard1'>
+        <div onClick={setGame} className='w-1/2 z-10 sm:pl-32 sm:pt-4' id='lizard1'>
           <div className='bg-lizard-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='lizard2'></div>
           <div className='bg-lizard-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='lizard3'></div>
           <div className='bg-slate-300 rounded-full w-20 h-20 z-10  -mb-[76px] mx-auto' id='lizard4'></div>
@@ -64,7 +64,7 @@ function Gameboard({setGameStarted, setPlayerButtonPick}: IgameBoard) {
         </div>
 
         {/* border-2 border-purple-300 */}
-        <div onClick={setGame} className='w-1/2 z-10' id='rock1'>
+        <div onClick={setGame} className='w-1/2 z-10 sm:pr-32 sm:pt-4' id='rock1'>
           <div className='bg-rock-bg-first rounded-full w-28 h-28 -mb-[116px] mx-auto' id='rock2'></div>
           <div className='bg-rock-bg-last rounded-full w-28 h-28 -mb-24 mx-auto' id='rock3'></div>
           <div className='bg-slate-300 rounded-full w-20 h-20 z-10 -mb-[76px] mx-auto' id='rock4'></div>
