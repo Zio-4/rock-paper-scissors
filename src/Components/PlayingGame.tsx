@@ -13,7 +13,6 @@ interface IplayingGame {
 }
 
 
-
 function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: IplayingGame) {
   const [computerButtonPick, setComputerButtonPick] = useState<string>('')
   const [gameResult, setGameResult] = useState<string>('')
@@ -70,7 +69,6 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
     if (gameResult === 'lose' && score !== 0) setScore(score -= 1)
 
   }, [computerButtonPick, gameResult])
-
 
 
   const renderComputerPick = () => {
@@ -152,7 +150,8 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
 
   return (
     <div className=''>
-      <div className='hidden xl:flex xl:justify-around xl:space-x-80 xl:mt-10 xl:ml-10'>
+      {/* For xl displays */}
+      <div className={`hidden xl:flex xl:justify-center xl:space-x-56 xl:mt-10 xl:ml-10 ${!!computerButtonPick ? ' xl:justify-around xl:space-x-[21rem] xl:mt-10 xl:ml-10' : null}`}>
         <div className={`text-lg text-white uppercase tracking-widest ml-12 sm:ml-[7.5rem] md:ml-[11.5rem] lg:ml-[16.5rem] xl:text-2xl xl:ml-0 ${gameResult === 'win' ? 'underline decoration-solid underline-offset-8' : null}`}>you picked</div>
         <div className={`text-lg text-white uppercase tracking-widest pr-4 sm:pr-20 md:pr-[9.5rem] lg:pr-[14.5rem] xl:text-2xl xl:pr-0 ${gameResult === 'lose' ? 'underline decoration-solid underline-offset-8' : null}`}>the house picked</div>
       </div>
