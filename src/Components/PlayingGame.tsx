@@ -71,27 +71,35 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
 
   }, [computerButtonPick, gameResult])
 
-  console.log(gameResult)
+
+
+//   <div className='flex justify-center space-x-20 mt-20 mb-12 sm:space-x-48 lg:space-x-72 xl:space-x-28'>
+//   <div className='mb-4'>
+//     <div className={`bg-${playerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto xl:w-72 xl:h-72 xl:-mb-[18.7rem]`}></div>
+//     <div className={`bg-${playerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto xl:w-72 xl:h-72 xl:-mb-[16rem]`}></div>
+//     <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto xl:w-56 xl:h-56 xl:-mb-[13.5rem]'></div>
+//     <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto xl:w-56 xl:h-56 xl:-mb-44'></div>
+//     <img src={require(`../images/icon-${playerButtonPick}.svg`)} alt={`${playerButtonPick} button`} className='mx-auto w-9 z-30 xl:w-24' />
+// </div>
 
 
   const renderComputerPick = () => {
     if (computerButtonPick.length > 0) {
       return (
         <div >
-          <div className={`bg-${computerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto`} ></div>
-          <div className={`bg-${computerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto`}></div>
-          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'></div>
-          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto' ></div>
-          <img src={require(`../images/icon-${computerButtonPick}.svg`)} alt={`${computerButtonPick} button`} className='mx-auto w-9 z-30'/>
+          <div className={`bg-${computerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto xl:w-72 xl:h-72 xl:-mb-[18.7rem]`} ></div>
+          <div className={`bg-${computerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto xl:w-72 xl:h-72 xl:-mb-[16rem]`}></div>
+          <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto xl:w-56 xl:h-56 xl:-mb-[13.5rem]'></div>
+          <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto xl:w-56 xl:h-56 xl:-mb-44' ></div>
+          <img src={require(`../images/icon-${computerButtonPick}.svg`)} alt={`${computerButtonPick} button`} className='mx-auto w-9 z-30 xl:w-24'/>
         </div>)
     }
   }
 
-
   const winLoseTie = () => {
     if (gameResult === 'win') {
       return (
-        <div>
+        <div className='xl:hidden'>
           <p className='text-6xl text-yellow-400 uppercase text-center mt-20'>you win</p>
           <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
             <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
@@ -100,7 +108,7 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
       )
     } else if (gameResult === 'lose') {
       return (
-        <div>
+        <div className='xl:hidden'>
           <p className='text-6xl text-red-400 uppercase text-center mt-20'>you lose</p>
           <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
             <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
@@ -109,7 +117,39 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
       )
     } else if (gameResult === 'tie') {
       return (
-        <div>
+        <div className='xl:hidden'>
+          <p className='text-6xl text-white uppercase text-center mt-20'>it's a tie</p>
+          <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
+            <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
+          </div>
+        </div>
+      )
+    }
+  }
+
+
+  const winLoseTieBigScreen = () => {
+    if (gameResult === 'win') {
+      return (
+        <div className='hidden xl:block'>
+          <p className='text-6xl text-yellow-400 uppercase text-center mt-20'>you win</p>
+          <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
+            <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
+          </div>
+        </div>
+      )
+    } else if (gameResult === 'lose') {
+      return (
+        <div className='hidden xl:block'>
+          <p className='text-6xl text-red-400 uppercase text-center mt-20'>you lose</p>
+          <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
+            <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
+          </div>
+        </div>
+      )
+    } else if (gameResult === 'tie') {
+      return (
+        <div className='hidden xl:block'>
           <p className='text-6xl text-white uppercase text-center mt-20'>it's a tie</p>
           <div onClick={() => setGameStarted(false)} className='flex justify-center mt-6'>
             <button className='rounded-md py-3 px-20 uppercase tracking-widest text-xl text-page-bg-start bg-white'>play again</button>
@@ -121,26 +161,28 @@ function PlayingGame({playerButtonPick, setScore, score, setGameStarted}: Iplayi
 
 
   return (
-    <div>
-      <div className='flex justify-center space-x-20 mt-20 mb-12 sm:space-x-48 lg:space-x-72'>
+    <div className=''>
+      <div className='flex justify-center space-x-20 mt-20 mb-12 sm:space-x-48 lg:space-x-72 xl:space-x-28 xl:mt-44'>
           <div className='mb-4'>
-            <div className={`bg-${playerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto`}></div>
-            <div className={`bg-${playerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto`}></div>
-            <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto'></div>
-            <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto'></div>
-            <img src={require(`../images/icon-${playerButtonPick}.svg`)} alt={`${playerButtonPick} button`} className='mx-auto w-9 z-30' />
+            <div className={`bg-${playerButtonPick}-bg-first -mb-[116px] rounded-full w-28 h-28 mx-auto xl:w-72 xl:h-72 xl:-mb-[18.7rem]`}></div>
+            <div className={`bg-${playerButtonPick}-bg-last -mb-24 rounded-full w-28 h-28 mx-auto xl:w-72 xl:h-72 xl:-mb-[16rem]`}></div>
+            <div className='bg-slate-300 -mb-[76px] rounded-full w-20 h-20 z-10 mx-auto xl:w-56 xl:h-56 xl:-mb-[13.5rem]'></div>
+            <div className='bg-white rounded-full -mb-16 w-20 h-20 z-20 mx-auto xl:w-56 xl:h-56 xl:-mb-44'></div>
+            <img src={require(`../images/icon-${playerButtonPick}.svg`)} alt={`${playerButtonPick} button`} className='mx-auto w-9 z-30 xl:w-24' />
         </div>
 
+        {winLoseTieBigScreen()}
+
         {/* Check string is not null */}
-        <div className={`bg-computer-placeholder-button opacity-20 rounded-full w-28 h-28 ${!!computerButtonPick ? 'hidden' : null}`}></div>
+        <div className={`bg-computer-placeholder-button opacity-20 rounded-full w-28 h-28 xl:w-72 xl:h-72 xl:pl-32 ${!!computerButtonPick ? 'hidden' : null}`}></div>
         
         {renderComputerPick()}
 
       </div>
 
       <div className='flex flex-wrap justify-between space-x-2 mt-5'>
-        <div className={`text-lg text-white uppercase tracking-widest ml-12 sm:ml-[7.5rem] md:ml-[11.5rem] lg:ml-[16.5rem] ${gameResult === 'win' ? 'underline decoration-solid underline-offset-8' : null}`}>you picked</div>
-        <div className={`text-lg text-white uppercase tracking-widest pr-4 sm:pr-20 md:pr-[9.5rem] lg:pr-[14.5rem] ${gameResult === 'lose' ? 'underline decoration-solid underline-offset-8' : null}`}>the house picked</div>
+        <div className={`text-lg text-white uppercase tracking-widest ml-12 sm:ml-[7.5rem] md:ml-[11.5rem] lg:ml-[16.5rem] xl:-mt-[21rem] xl:text-2xl ${gameResult === 'win' ? 'underline decoration-solid underline-offset-8' : null}`}>you picked</div>
+        <div className={`text-lg text-white uppercase tracking-widest pr-4 sm:pr-20 md:pr-[9.5rem] lg:pr-[14.5rem] xl:-mt-[20.5rem] xl:text-2xl ${gameResult === 'lose' ? 'underline decoration-solid underline-offset-8' : null}`}>the house picked</div>
       </div>
 
       {winLoseTie()}
