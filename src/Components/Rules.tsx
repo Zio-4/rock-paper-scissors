@@ -21,7 +21,7 @@ return (
       </div>
 
       {/* Horizontally centers a fixed element */}
-      <div className='fixed top-[80%] left-1/2 -translate-x-1/2 '>
+      <div className='fixed top-[90%] left-[90%] -translate-x-1/2 '>
           <button 
           onClick={() => setModalState(!modalState)} 
           className='text-white font-extralight text-2xl border-2 border-white py-2 px-12 rounded-xl uppercase tracking-widest mx-auto'
