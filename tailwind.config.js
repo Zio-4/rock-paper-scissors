@@ -21,6 +21,7 @@ module.exports = {
         'rock-bg-last': 'hsl(349, 70%, 56%)',
         'lizard-bg-first': 'hsl(261, 73%, 55%)',
         'lizard-bg-last': 'hsl(261, 72%, 63%)',
+        'modal-bg': 'rgba(27, 27, 27, 0.541)'
       },
       screens: {
         'smallest': '300px'

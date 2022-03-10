@@ -16,7 +16,7 @@ function App() {
   // 2. Store the score state in localStorage?
 
   return (
-    <div >
+    <div>
         <Header score={score}/>
         {gameStarted ? <PlayingGame playerButtonPick={playerButtonPick} setScore={setScore} score={score} setGameStarted={setGameStarted}/> : <Gameboard setGameStarted={setGameStarted} setPlayerButtonPick={setPlayerButtonPick}/>}
         <Rules />
